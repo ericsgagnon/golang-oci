@@ -2,7 +2,7 @@
 # 1. oracle instant client with oci
 # 2. golang
 
-ARG   OIC_VERSION=18.3
+ARG   OIC_VERSION=18.5
 ARG   GOLANG_VERSION=1.12
 
 # Oracle Instant Client (oci) ########################################################################
@@ -53,7 +53,8 @@ COPY --from=oracle-instant-client  /usr/include/oracle /usr/include/oracle
 COPY ./oci8.pc /usr/lib/pkgconfig/oci8.pc
 
 
-RUN  apt update && apt install \
+RUN  sed -i 's/OIC_VERSION/'"$OIC_VERSION"'/' /usr/lib/pkgconfig/oci8.pc && \
+     apt update && apt install \
      libaio1
 
 RUN  ln -s /lib64 /usr/lib64 && \
