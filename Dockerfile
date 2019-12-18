@@ -2,8 +2,8 @@
 # 1. oracle instant client with oci
 # 2. golang
 
-ARG   OIC_VERSION=18.5
-ARG   GOLANG_VERSION=1.12
+ARG   OIC_VERSION=19.5
+ARG   GOLANG_VERSION=1.13.5
 
 # Oracle Instant Client (oci) ########################################################################
 #
